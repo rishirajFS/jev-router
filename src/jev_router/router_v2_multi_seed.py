@@ -21,8 +21,15 @@ from jev_router.routing_eval import build_outcomes
 from jev_router.run_experiment import ROOT, load_all_items
 
 
+UNDEFINED_GAP = -99.9  # a gap of -100 means the frontier cost was infinite (see aggregate)
+
+
 def _stats(gaps: list[float], savings: list[float], acc: list[float], vs_random: list[float]) -> dict[str, Any]:
+    keep = [k for k, g in enumerate(gaps) if g > UNDEFINED_GAP]
+    n_undefined = len(gaps) - len(keep)
+    gaps, savings, acc, vs_random = ([col[k] for k in keep] for col in (gaps, savings, acc, vs_random))
     return {
+        "n_undefined": n_undefined,
         "n_seeds": len(gaps),
         "gap_mean": statistics.fmean(gaps),
         "gap_std": statistics.pstdev(gaps),
@@ -34,7 +41,13 @@ def _stats(gaps: list[float], savings: list[float], acc: list[float], vs_random:
 
 
 def aggregate(reports: Sequence[dict[str, Any]]) -> dict[str, dict[str, Any]]:
-    """Per (method, floor): frontier gap (negative = cheaper than the best single-model mix)."""
+    """Per (method, floor): frontier gap (negative = cheaper than the best single-model mix).
+
+    When a router is more accurate than every single model on a split, the cheapest single-model
+    mixture at that accuracy does not exist and score_v2 reports a gap of exactly -100. Those splits
+    are excluded from the statistics (and counted in n_undefined) rather than averaged in, which
+    would overstate the result.
+    """
     if not reports:
         raise ValueError("aggregate needs at least one report")
     cells: dict[str, list[tuple[float, float, float, float]]] = {}

@@ -33,3 +33,14 @@ def test_aggregate_reports_mean_std_and_share_of_seeds_below_frontier():
 def test_aggregate_rejects_empty_input():
     with pytest.raises(ValueError):
         aggregate([])
+
+
+def test_aggregate_excludes_undefined_frontier_gaps_instead_of_averaging_minus_100():
+    # A split where the router beat every single model has no frontier cost; the pipeline scored
+    # it as -100%. That must not enter the mean, and it must be reported.
+    out = aggregate([report(-5, 10, 8), report(-100, 12, 9), report(-7, 14, 7)])
+    full = out["learned:full:threshold:0.97"]
+    assert full["gap_mean"] == pytest.approx(-6.0)
+    assert full["n_seeds"] == 2
+    assert full["n_undefined"] == 1
+    assert out["old_threshold:0.97"]["n_undefined"] == 0

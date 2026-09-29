@@ -203,7 +203,13 @@ because every model answer was already cached.
 | Threshold router, 95-99% floors | +4.5% to +7.8% | 0-40% |
 | Difficulty-only learned router | +2.3% to +4.6% | 5-35% |
 | Full-feature learned router, threshold rule | -3.4% to -11.2% | 65-100% |
-| Full-feature learned router, expected-loss rule | -13.2% to -14.6% | 95-100% |
+| Full-feature learned router, expected-loss rule | -8.7% to -14.6% | 95-100% |
+
+One split at the 99% floor had the expected-loss router more accurate than Opus itself, which
+leaves the frontier gap undefined; that split is excluded from its cell (19 splits). An earlier
+version of this analysis scored it as -100%, which overstated the cell as -13.2% with a standard
+deviation of 21 points; the corrected figure is -8.7% with a standard deviation of 5.5. No other cell
+was affected.
 
 The difficulty-only learned router stays above the frontier, so putting a learned model on the
 single difficulty number does not help by itself; the gain needs additional information. Section 4.5
@@ -301,8 +307,9 @@ artifact of the seed-42 design, not that it transfers to other kinds of tasks.
   design. The fresh-set evaluation (4.6) removes this for the router as a whole. It does not for the
   ablation comparison (4.5), which was run on the original 1,220 items only, so Jev's margin over
   TF-IDF and embedding routers has not been confirmed on unseen data.
-- **Instability.** The expected-loss rule at the 99% floor has a standard deviation of about 21
-  points across splits, and the threshold-rule advantage at the 95% floor is only a few percent.
+- **Instability.** Split-to-split standard deviations of the frontier gap are about 3 to 9 points,
+  the threshold-rule advantage at the 95% floor is only a few percent, and at the 99% floor one split
+  had the router more accurate than Opus, leaving its frontier gap undefined (excluded; see 4.4).
 - **Provider settings shape cost.** `effort: low` and Sonnet's verbosity affect its cost; results
   depend on these settings and on list prices at the time of the run.
 - **Latency is not part of the cost model.** Jev adds roughly 0.2 s per request.
