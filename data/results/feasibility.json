@@ -1,0 +1,35 @@
+{
+  "routing": {
+    "n": 67,
+    "exact_accuracy": 0.9104477611940298,
+    "over_routed": 0.05970149253731343,
+    "under_routed": 0.029850746268656716,
+    "within_one": 1.0
+  },
+  "confusion_matrix": {
+    "0": {
+      "0": 22
+    },
+    "1": {
+      "1": 19,
+      "2": 4
+    },
+    "2": {
+      "1": 2,
+      "2": 20
+    }
+  },
+  "difficulty_spearman": 0.9295946384803282,
+  "task_type_accuracy": 0.8955223880597015,
+  "mean_difficulty_by_expected_tier": {
+    "0": 0.13136363636363638,
+    "1": 1.5504347826086955,
+    "2": 2.644090909090909
+  },
+  "escalations": {
+    "low_confidence": 0,
+    "multistep": 0
+  },
+  "mean_latency_seconds": 0.179047241932087,
+  "total_tokens": 52740
+}

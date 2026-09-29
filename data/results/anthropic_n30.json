@@ -1,0 +1,37 @@
+{
+  "models": {
+    "claude-haiku-4-5": {
+      "n": 30,
+      "accuracy": 0.9333333333333333,
+      "mean_input_tokens": 165.46666666666667,
+      "mean_output_tokens": 4.0,
+      "mean_latency_seconds": 0.651790613871223,
+      "cost": 0.005564,
+      "truncated": 0,
+      "refusals": 0
+    },
+    "claude-sonnet-5-5": {
+      "n": 30,
+      "accuracy": 0.8666666666666667,
+      "mean_input_tokens": 223.2,
+      "mean_output_tokens": 15.166666666666666,
+      "mean_latency_seconds": 1.0611599333351478,
+      "cost": 0.017942,
+      "truncated": 0,
+      "refusals": 0
+    },
+    "claude-opus-5-5": {
+      "n": 30,
+      "accuracy": 0.9666666666666667,
+      "mean_input_tokens": 223.2,
+      "mean_output_tokens": 20.933333333333334,
+      "mean_latency_seconds": 1.6473281207028776,
+      "cost": 0.039344000000000004,
+      "truncated": 0,
+      "refusals": 0
+    }
+  },
+  "pilot_cost": 0.06285,
+  "projected_full_cost": 1.6760000000000002,
+  "spent_this_run": 0.06284999999999999
+}

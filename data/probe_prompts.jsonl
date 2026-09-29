@@ -1,0 +1,67 @@
+{"id": "p000", "task_type": "chat", "expected_tier": 0, "text": "hey, how's it going today?"}
+{"id": "p001", "task_type": "chat", "expected_tier": 0, "text": "Thanks, that was helpful!"}
+{"id": "p002", "task_type": "chat", "expected_tier": 0, "text": "Can you tell me a fun fact about octopuses?"}
+{"id": "p003", "task_type": "chat", "expected_tier": 0, "text": "Say good morning in French, Spanish, and German."}
+{"id": "p004", "task_type": "factual_qa", "expected_tier": 0, "text": "What is the capital of Australia?"}
+{"id": "p005", "task_type": "factual_qa", "expected_tier": 0, "text": "Who wrote Pride and Prejudice?"}
+{"id": "p006", "task_type": "factual_qa", "expected_tier": 0, "text": "How many days are in a leap year?"}
+{"id": "p007", "task_type": "factual_qa", "expected_tier": 0, "text": "What does HTTP stand for?"}
+{"id": "p008", "task_type": "classification", "expected_tier": 0, "text": "Is this review positive or negative? 'The food was cold and the waiter ignored us.'"}
+{"id": "p009", "task_type": "classification", "expected_tier": 0, "text": "Label the language of this text: 'Ich m\u00f6chte einen Kaffee, bitte.'"}
+{"id": "p010", "task_type": "classification", "expected_tier": 0, "text": "Categorize this email subject as spam or not spam: 'You WON a free cruise!!! Click now'"}
+{"id": "p011", "task_type": "extraction", "expected_tier": 0, "text": "Extract the email address from: 'Contact Dana at dana.k@example.com before Friday.'"}
+{"id": "p012", "task_type": "extraction", "expected_tier": 0, "text": "From 'Order #4471 shipped on 2024-03-02 to Leeds', give me the order number and date."}
+{"id": "p013", "task_type": "extraction", "expected_tier": 0, "text": "Convert this list to JSON: apples, pears, plums."}
+{"id": "p014", "task_type": "summarization", "expected_tier": 0, "text": "Summarize in one sentence: 'The meeting covered Q3 budget, hiring two engineers, and moving the launch to October.'"}
+{"id": "p015", "task_type": "summarization", "expected_tier": 0, "text": "Rewrite this politely: 'Send me the report now.'"}
+{"id": "p016", "task_type": "math", "expected_tier": 0, "text": "What is 15% of 80?"}
+{"id": "p017", "task_type": "math", "expected_tier": 0, "text": "What is 12 times 9?"}
+{"id": "p018", "task_type": "code", "expected_tier": 0, "text": "Write a Python function that returns the square of a number."}
+{"id": "p019", "task_type": "code", "expected_tier": 0, "text": "How do I print 'hello' in JavaScript?"}
+{"id": "p020", "task_type": "writing", "expected_tier": 0, "text": "Write a two-line birthday message for my coworker."}
+{"id": "p021", "task_type": "writing", "expected_tier": 0, "text": "Give me three synonyms for 'happy'."}
+{"id": "p022", "task_type": "math", "expected_tier": 1, "text": "A train leaves at 2:15pm going 60 mph and a second leaves the same station at 3:00pm going 80 mph. When does the second catch up?"}
+{"id": "p023", "task_type": "math", "expected_tier": 1, "text": "Solve for x: 3x^2 - 12x + 9 = 0, and explain each step."}
+{"id": "p024", "task_type": "math", "expected_tier": 1, "text": "A shop marks up items 40% then offers 25% off. What is the net change in price compared to the original cost?"}
+{"id": "p025", "task_type": "code", "expected_tier": 1, "text": "Write a Python function that merges overlapping intervals in a list of [start, end] pairs."}
+{"id": "p026", "task_type": "code", "expected_tier": 1, "text": "This SQL query is slow: SELECT * FROM orders o JOIN customers c ON c.id = o.customer_id WHERE o.created_at > '2024-01-01'. Suggest indexes and rewrites."}
+{"id": "p027", "task_type": "code", "expected_tier": 1, "text": "Write a React hook that debounces a value and cleans up its timer on unmount."}
+{"id": "p028", "task_type": "code", "expected_tier": 1, "text": "Explain why this Python code raises 'RuntimeError: dictionary changed size during iteration' and fix it: for k in d: if d[k] < 0: del d[k]"}
+{"id": "p029", "task_type": "code", "expected_tier": 1, "text": "Write unit tests with pytest for a function that parses ISO-8601 dates and raises ValueError on bad input."}
+{"id": "p030", "task_type": "summarization", "expected_tier": 1, "text": "Summarize the main arguments for and against remote work in three bullet points each, in a neutral tone, for an executive audience."}
+{"id": "p031", "task_type": "summarization", "expected_tier": 1, "text": "Rewrite this paragraph for a general audience while keeping every technical claim accurate: 'Gradient descent iteratively updates parameters in the direction opposing the loss gradient, scaled by a learning rate, converging to a local minimum for convex-enough objectives.'"}
+{"id": "p032", "task_type": "extraction", "expected_tier": 1, "text": "Given this messy invoice text, extract vendor, line items with quantities and unit prices, tax, and total as JSON, flagging any lines where the arithmetic does not add up: 'ACME Co. 3x widget @ 4.50 = 13.00; 2x gadget @ 10 = 20; tax 8% = 2.64; total 35.64'"}
+{"id": "p033", "task_type": "classification", "expected_tier": 1, "text": "Classify each of these 12 support tickets into billing, bug, feature request, or account access, and give a one-line reason for each. [tickets omitted for brevity, assume typical SaaS support messages]"}
+{"id": "p034", "task_type": "factual_qa", "expected_tier": 1, "text": "Explain the difference between TCP and UDP and when each is the better choice for a multiplayer game."}
+{"id": "p035", "task_type": "factual_qa", "expected_tier": 1, "text": "What caused the 2008 financial crisis, and which policy responses mattered most?"}
+{"id": "p036", "task_type": "factual_qa", "expected_tier": 1, "text": "Compare how PostgreSQL and MySQL implement MVCC and what that means for long-running transactions."}
+{"id": "p037", "task_type": "writing", "expected_tier": 1, "text": "Write a 300-word cover letter for a backend engineer applying to a fintech startup, emphasizing reliability and testing."}
+{"id": "p038", "task_type": "writing", "expected_tier": 1, "text": "Draft a clear incident postmortem for a 40-minute outage caused by an expired TLS certificate."}
+{"id": "p039", "task_type": "reasoning", "expected_tier": 1, "text": "I have two job offers: one pays 15% more but has a 90-minute commute; the other is remote. List the factors I should weigh and how."}
+{"id": "p040", "task_type": "reasoning", "expected_tier": 1, "text": "Plan a three-day itinerary for Lisbon for a family with two young children, balancing walking and rest."}
+{"id": "p041", "task_type": "reasoning", "expected_tier": 1, "text": "Our API returns 500s for about 2% of requests under load. Give me a prioritized debugging plan."}
+{"id": "p042", "task_type": "math", "expected_tier": 1, "text": "How many ways can 5 people sit around a round table if two of them refuse to sit next to each other?"}
+{"id": "p043", "task_type": "code", "expected_tier": 1, "text": "Convert this recursive Fibonacci function to use memoization and explain the complexity change."}
+{"id": "p044", "task_type": "reasoning", "expected_tier": 1, "text": "Two candidate architectures: a monolith with a job queue, or three microservices. Our team is 4 engineers. Which should we pick and why?"}
+{"id": "p045", "task_type": "math", "expected_tier": 2, "text": "Prove that there are infinitely many primes congruent to 3 mod 4."}
+{"id": "p046", "task_type": "math", "expected_tier": 2, "text": "Let G be a finite group in which every element satisfies x^2 = e. Prove G is abelian, then determine all possible orders of such groups and their structure."}
+{"id": "p047", "task_type": "math", "expected_tier": 2, "text": "Compute the expected number of coin flips until the pattern HTH first appears, and derive it using a Markov chain, not by guessing."}
+{"id": "p048", "task_type": "math", "expected_tier": 2, "text": "Show that the sum over n of 1/n^2 converges to pi^2/6 using Fourier series of x^2 on [-pi, pi], carefully justifying each step."}
+{"id": "p049", "task_type": "code", "expected_tier": 2, "text": "Design and implement a lock-free multi-producer single-consumer queue in C++ with correct memory ordering, and explain why each atomic operation uses the ordering it does."}
+{"id": "p050", "task_type": "code", "expected_tier": 2, "text": "Find the race condition in this Go worker-pool that occasionally deadlocks on shutdown, and rewrite it so it is provably correct: [assume 80 lines of channel-based worker code with a shared WaitGroup and a done channel closed twice on error paths]"}
+{"id": "p051", "task_type": "code", "expected_tier": 2, "text": "Implement a B-tree with deletion and rebalancing in Rust, including property-based tests, without any unsafe code."}
+{"id": "p052", "task_type": "code", "expected_tier": 2, "text": "Write a query planner cost model for a distributed SQL engine that chooses between broadcast and shuffle joins, and justify the cost formulas from first principles."}
+{"id": "p053", "task_type": "reasoning", "expected_tier": 2, "text": "A distributed system uses leader election with lease-based leadership. Under what clock-skew and network-partition conditions can two nodes both believe they are leader, and how would fencing tokens fix each case? Give a concrete failure timeline."}
+{"id": "p054", "task_type": "reasoning", "expected_tier": 2, "text": "Critique this experimental design for measuring the causal effect of a recommendation algorithm on retention, identifying every threat to validity and proposing a corrected design with a power calculation: [assume a 3-paragraph A/B test description with network effects and novelty bias]"}
+{"id": "p055", "task_type": "reasoning", "expected_tier": 2, "text": "Given conflicting evidence from two randomized trials with different populations and endpoints, how should a clinician decide whether to prescribe a new anticoagulant to an elderly patient with renal impairment? Structure the argument formally."}
+{"id": "p056", "task_type": "reasoning", "expected_tier": 2, "text": "Analyze the game-theoretic equilibria of a three-firm Cournot competition with asymmetric costs and a regulatory entry threat, and discuss which are subgame perfect."}
+{"id": "p057", "task_type": "factual_qa", "expected_tier": 2, "text": "Explain how the Raft consensus protocol guarantees log matching and leader completeness, and construct a scenario showing why the commit rule needs the current-term restriction."}
+{"id": "p058", "task_type": "factual_qa", "expected_tier": 2, "text": "Explain why the Transformer's attention cost is quadratic, then compare in depth how FlashAttention, Linformer, and state-space models each address it and what they trade away."}
+{"id": "p059", "task_type": "writing", "expected_tier": 2, "text": "Write a rigorous 500-word related-work section positioning a new confidence-calibrated LLM router against RouteLLM, FrugalGPT, and cascade-based methods, with accurate technical distinctions."}
+{"id": "p060", "task_type": "writing", "expected_tier": 2, "text": "Draft a persuasive but technically honest architecture decision record for migrating a 10-year-old payments monolith to event sourcing, addressing regulatory audit requirements and rollback risk."}
+{"id": "p061", "task_type": "summarization", "expected_tier": 2, "text": "Read this dense legal clause and explain in plain English every way the indemnification obligation could survive termination, citing the interacting subsections: [assume a 600-word clause with cross-references to sections 9.2, 11.4, and 14.1]"}
+{"id": "p062", "task_type": "extraction", "expected_tier": 2, "text": "From this 40-page contract excerpt, build a table of every obligation, its owner, its deadline, and conflicting clauses, resolving ambiguity by noting which interpretation is legally safer: [assume long multi-party contract text]"}
+{"id": "p063", "task_type": "classification", "expected_tier": 2, "text": "Decide whether each of these 8 borderline social media posts violates a policy that bans 'targeted harassment but not criticism of public figures', explaining the reasoning for edge cases: [assume 8 nuanced posts involving sarcasm and quoted speech]"}
+{"id": "p064", "task_type": "reasoning", "expected_tier": 2, "text": "Design a rollout and rollback strategy for a schema migration on a 5TB Postgres table serving 20k QPS with zero downtime, including the exact sequence, locking behavior at each step, and failure modes."}
+{"id": "p065", "task_type": "math", "expected_tier": 2, "text": "Derive the closed form of the posterior for a Bayesian linear regression with unknown noise variance under a normal-inverse-gamma prior, and show the marginal likelihood."}
+{"id": "p066", "task_type": "code", "expected_tier": 2, "text": "Optimize this matrix multiplication kernel in CUDA for a 4096x4096 float16 problem: explain tiling, shared-memory bank conflicts, and tensor core usage, and give code."}

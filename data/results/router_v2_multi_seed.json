@@ -1,0 +1,191 @@
+{
+  "old_threshold:0.99": {
+    "n_seeds": 20,
+    "gap_mean": 5.958118992108145,
+    "gap_std": 5.513285404037633,
+    "share_cheaper_than_frontier": 0.0,
+    "savings_vs_opus_mean": 5.100698599970034,
+    "accuracy_mean": 0.94623718661173,
+    "acc_vs_random_mean_pp": 0.6117304758724627
+  },
+  "old_threshold:0.97": {
+    "n_seeds": 20,
+    "gap_mean": 4.545981775847945,
+    "gap_std": 8.782931130314958,
+    "share_cheaper_than_frontier": 0.4,
+    "savings_vs_opus_mean": 27.20901920782893,
+    "accuracy_mean": 0.9229028639259488,
+    "acc_vs_random_mean_pp": 1.0851036444393372
+  },
+  "old_threshold:0.95": {
+    "n_seeds": 20,
+    "gap_mean": 7.849754951798221,
+    "gap_std": 6.5184820736111355,
+    "share_cheaper_than_frontier": 0.1,
+    "savings_vs_opus_mean": 39.218193509548804,
+    "accuracy_mean": 0.9033090356503035,
+    "acc_vs_random_mean_pp": 1.8582251429065306
+  },
+  "learned:difficulty_only:threshold:0.99": {
+    "n_seeds": 20,
+    "gap_mean": 3.8760829374752057,
+    "gap_std": 3.084955980541468,
+    "share_cheaper_than_frontier": 0.05,
+    "savings_vs_opus_mean": 4.227548423158408,
+    "accuracy_mean": 0.9488909552396831,
+    "acc_vs_random_mean_pp": 1.4672871117279405
+  },
+  "learned:difficulty_only:loss:0.99": {
+    "n_seeds": 20,
+    "gap_mean": 1.0029318314582791,
+    "gap_std": 3.534219723727737,
+    "share_cheaper_than_frontier": 0.4,
+    "savings_vs_opus_mean": 4.418924530670743,
+    "accuracy_mean": 0.9515567395327296,
+    "acc_vs_random_mean_pp": 1.013242239845851
+  },
+  "learned:difficulty_only:threshold:0.97": {
+    "n_seeds": 20,
+    "gap_mean": 2.264547594675491,
+    "gap_std": 6.9375853239411445,
+    "share_cheaper_than_frontier": 0.35,
+    "savings_vs_opus_mean": 27.580550425368152,
+    "accuracy_mean": 0.9242363392396552,
+    "acc_vs_random_mean_pp": 1.8154131196457313
+  },
+  "learned:difficulty_only:loss:0.97": {
+    "n_seeds": 20,
+    "gap_mean": 2.0822305915746373,
+    "gap_std": 7.9828596580923605,
+    "share_cheaper_than_frontier": 0.45,
+    "savings_vs_opus_mean": 20.988725528127514,
+    "accuracy_mean": 0.9324277034755429,
+    "acc_vs_random_mean_pp": 2.317030536500623
+  },
+  "learned:difficulty_only:threshold:0.95": {
+    "n_seeds": 20,
+    "gap_mean": 4.604700098434299,
+    "gap_std": 5.611964299260407,
+    "share_cheaper_than_frontier": 0.25,
+    "savings_vs_opus_mean": 40.036905800738815,
+    "accuracy_mean": 0.9051297466418541,
+    "acc_vs_random_mean_pp": 2.643888269657562
+  },
+  "learned:difficulty_only:loss:0.95": {
+    "n_seeds": 20,
+    "gap_mean": -0.5706044920277422,
+    "gap_std": 8.737415250716241,
+    "share_cheaper_than_frontier": 0.5,
+    "savings_vs_opus_mean": 36.840803150732434,
+    "accuracy_mean": 0.9149543631749804,
+    "acc_vs_random_mean_pp": 3.695181760517987
+  },
+  "learned:full:threshold:0.99": {
+    "n_seeds": 20,
+    "gap_mean": -11.19529272877119,
+    "gap_std": 3.1460073901064805,
+    "share_cheaper_than_frontier": 1.0,
+    "savings_vs_opus_mean": 18.843685067970277,
+    "accuracy_mean": 0.9476587986376034,
+    "acc_vs_random_mean_pp": 3.5150545139120193
+  },
+  "primary:threshold:0.99": {
+    "n_seeds": 20,
+    "gap_mean": -11.19529272877119,
+    "gap_std": 3.1460073901064805,
+    "share_cheaper_than_frontier": 1.0,
+    "savings_vs_opus_mean": 18.843685067970277,
+    "accuracy_mean": 0.9476587986376034,
+    "acc_vs_random_mean_pp": 3.5150545139120193
+  },
+  "learned:full:loss:0.99": {
+    "n_seeds": 20,
+    "gap_mean": -13.242994287566706,
+    "gap_std": 20.608351183219078,
+    "share_cheaper_than_frontier": 0.95,
+    "savings_vs_opus_mean": 16.44064650325927,
+    "accuracy_mean": 0.9485515363014192,
+    "acc_vs_random_mean_pp": 2.7991873149515243
+  },
+  "primary:loss:0.99": {
+    "n_seeds": 20,
+    "gap_mean": -13.242994287566706,
+    "gap_std": 20.608351183219078,
+    "share_cheaper_than_frontier": 0.95,
+    "savings_vs_opus_mean": 16.44064650325927,
+    "accuracy_mean": 0.9485515363014192,
+    "acc_vs_random_mean_pp": 2.7991873149515243
+  },
+  "learned:full:threshold:0.97": {
+    "n_seeds": 20,
+    "gap_mean": -7.022895898417057,
+    "gap_std": 6.185571363181053,
+    "share_cheaper_than_frontier": 0.8,
+    "savings_vs_opus_mean": 33.35641964915681,
+    "accuracy_mean": 0.9248461048008997,
+    "acc_vs_random_mean_pp": 3.9365951351519066
+  },
+  "primary:threshold:0.97": {
+    "n_seeds": 20,
+    "gap_mean": -7.022895898417057,
+    "gap_std": 6.185571363181053,
+    "share_cheaper_than_frontier": 0.8,
+    "savings_vs_opus_mean": 33.35641964915681,
+    "accuracy_mean": 0.9248461048008997,
+    "acc_vs_random_mean_pp": 3.9365951351519066
+  },
+  "learned:full:loss:0.97": {
+    "n_seeds": 20,
+    "gap_mean": -13.3682389575467,
+    "gap_std": 5.460776855621819,
+    "share_cheaper_than_frontier": 1.0,
+    "savings_vs_opus_mean": 31.83910015527764,
+    "accuracy_mean": 0.9339876886238001,
+    "acc_vs_random_mean_pp": 4.655854765829774
+  },
+  "primary:loss:0.97": {
+    "n_seeds": 20,
+    "gap_mean": -13.3682389575467,
+    "gap_std": 5.460776855621819,
+    "share_cheaper_than_frontier": 1.0,
+    "savings_vs_opus_mean": 31.83910015527764,
+    "accuracy_mean": 0.9339876886238001,
+    "acc_vs_random_mean_pp": 4.655854765829774
+  },
+  "learned:full:threshold:0.95": {
+    "n_seeds": 20,
+    "gap_mean": -3.41592362884427,
+    "gap_std": 5.340104098931966,
+    "share_cheaper_than_frontier": 0.65,
+    "savings_vs_opus_mean": 43.85752102432518,
+    "accuracy_mean": 0.9063985271827237,
+    "acc_vs_random_mean_pp": 3.925885133987397
+  },
+  "primary:threshold:0.95": {
+    "n_seeds": 20,
+    "gap_mean": -3.41592362884427,
+    "gap_std": 5.340104098931966,
+    "share_cheaper_than_frontier": 0.65,
+    "savings_vs_opus_mean": 43.85752102432518,
+    "accuracy_mean": 0.9063985271827237,
+    "acc_vs_random_mean_pp": 3.925885133987397
+  },
+  "learned:full:loss:0.95": {
+    "n_seeds": 20,
+    "gap_mean": -14.641630373195891,
+    "gap_std": 8.737823848477246,
+    "share_cheaper_than_frontier": 0.95,
+    "savings_vs_opus_mean": 44.74582564835251,
+    "accuracy_mean": 0.9158389015097367,
+    "acc_vs_random_mean_pp": 4.8771450546833615
+  },
+  "primary:loss:0.95": {
+    "n_seeds": 20,
+    "gap_mean": -14.641630373195891,
+    "gap_std": 8.737823848477246,
+    "share_cheaper_than_frontier": 0.95,
+    "savings_vs_opus_mean": 44.74582564835251,
+    "accuracy_mean": 0.9158389015097367,
+    "acc_vs_random_mean_pp": 4.8771450546833615
+  }
+}

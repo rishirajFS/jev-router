@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+data/raw/
+data/cache/
+data/*_sample.jsonl
+data/fresh_sample.jsonl
+*.pkl
+*.parquet
+*.npy
