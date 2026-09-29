@@ -23,11 +23,14 @@ Headline findings (multiple-choice benchmarks, Haiku 4.5 / Sonnet 5.5 / Opus 5.5
    than the best single-model mix in 65-100% of 20 random splits. On a **fresh set of 594 items
    with the router frozen and evaluated once**, it was 7.5% to 12.3% cheaper than the best mix at
    the same accuracy at all three quality floors, which meets the rule I wrote down before the run.
-3. **The general result is not specific to Jev.** Learned routers on TF-IDF or on a small
-   sentence embedding, with no Jev calls, also beat the single-model mix in most splits. Jev's
-   features gave the lowest cost in 5 of 6 rule-and-floor cells (about 8 to 9 points cheaper than
-   the best non-Jev router under the expected-loss rule), but that comparison was run on the
-   original 1,220 items only, with about 600 training items, and was not repeated on the fresh set.
+3. **The general result is not specific to Jev, and Jev's own contribution is not established.**
+   Learned routers on TF-IDF or on a small sentence embedding, with no Jev calls, also beat the
+   single-model mix. On the original 1,220 items Jev's features gave the lowest cost in 5 of 6
+   rule-and-floor cells, and the lead did not shrink as training size grew from 100 to about 600
+   items. But a **pre-registered replication on the fresh set did not confirm it**: under the
+   expected-loss rule Jev beat the best non-Jev router at only 1 of 3 floors, with the embedding
+   router ahead at the lower two. What is robust is that routing on text features beats picking a
+   single model; whether Jev's features add to that is unresolved.
 4. **"Correct answers per dollar" is the wrong headline metric here.** Haiku is so cheap that
    always-Haiku wins it by 4-5x over any router. The fair comparison is cost at matched accuracy.
 5. Total spend: **$6.13** of Anthropic credit and about **$0.14** of Jev, with every response
@@ -247,21 +250,78 @@ What this shows:
 - **Length alone does not do it** under the threshold rule (above the frontier at the 97% floor in
   95% of splits), so length is not what drives the Jev router; Jev without length keeps most of
   the gain.
-- **Jev's features give the largest margin, but the margin depends on the rule.** Jev + length has
+- **On the original 1,220 items, Jev's features gave the largest margin, but it depended on the rule.**
+  Jev + length has
   the lowest mean gap in 5 of the 6 rule-and-floor cells (the 99% floor is omitted from the table
   and follows the same pattern: -11.2% threshold, -8.8% expected-loss). Under the expected-loss
   rule it is about 8 to 9 points cheaper than the best non-Jev router at the 97% and 95% floors
   (-13.4% vs -5.3%, -14.6% vs -5.7%). Under the threshold rule the margin is small (about 2 points at
   97%) and at the 95% floor TF-IDF is slightly ahead (-4.7% vs -3.4%).
-- **Adding embedding vectors to Jev's features made the router worse, not better.** That is
-  consistent with too many features for about 600 training items, and it means these data cannot
-  say whether Jev's information is redundant with an embedding's.
+- **On the original items, adding embedding vectors to Jev's features made the router worse, not
+  better.** That is consistent with too many features for about 600 training items, and it means
+  these data cannot say whether Jev's information is redundant with an embedding's. The fresh set
+  showed the opposite (4.5.2), so this too is unsettled.
 
-Caveats specific to this comparison: all routers were trained on about 600 items, and embedding
-routers generally improve with more training data whereas Jev is used zero-shot, so Jev's advantage
-may be largest in this small-data regime (a learning curve was not run); the non-Jev routers were
-given a wider regularization grid than the Jev router, which favours them; and the 20 splits reuse
-the same 1,220 items, so paired t-statistics are descriptive rather than inferential.
+Caveats specific to this comparison: all routers were trained on about 600 items; the non-Jev
+routers were given a wider regularization grid than the Jev router, which favours them; and the 20
+splits reuse the same 1,220 items, so paired t-statistics are descriptive rather than inferential.
+The next two subsections test whether the Jev margin survives more training data and unseen items.
+
+#### 4.5.1 Learning curve
+
+Each router was trained on 100, 200, 400 or all (about 607) items of the dev half of each of the 20
+splits, and scored on that split's full test half (expected-loss rule; mean gap to the frontier,
+share of splits cheaper in brackets):
+
+| Features, floor | 100 items | 200 | 400 | about 600 |
+|---|---|---|---|---|
+| TF-IDF, 97% | +0.0% (25%) | -3.5% (70%) | -3.9% (80%) | -5.3% (90%) |
+| Embedding, 97% | -1.8% (70%) | -3.1% (60%) | -5.3% (75%) | -5.2% (85%) |
+| Jev + length, 97% | -3.7% (90%) | -8.0% (95%) | -9.2% (90%) | -13.4% (100%) |
+| TF-IDF, 95% | +1.1% (40%) | -4.7% (70%) | -6.9% (80%) | -5.7% (80%) |
+| Embedding, 95% | -2.9% (75%) | -3.9% (55%) | -5.2% (70%) | -4.7% (70%) |
+| Jev + length, 95% | -1.0% (60%) | -8.5% (85%) | -7.8% (85%) | -14.6% (95%) |
+
+On the original items no router caught up with the Jev router as training size grew, and its lead
+under the expected-loss rule widened (about 2 points at 100 items to about 8 at full size at the
+97% floor). Under the threshold rule the Jev router led clearly only at the 97% floor. The curve
+stops at about 600 items, the most labelled data available, so it cannot show whether an embedding
+router would overtake with thousands of examples. Subsets are nested and splits reuse the same
+items, so this is descriptive.
+
+#### 4.5.2 Pre-registered replication on the fresh set: not confirmed
+
+The same routers were fit exactly as for the seed-42 split, frozen, and applied once to the 594
+fresh items. The rule was written into the code before any number was computed: Jev's margin holds
+if, under the expected-loss rule, Jev + length has a lower gap to the fresh set's own frontier than
+the best non-Jev router at 2 of the 3 floors. Combined fresh set, gap to the frontier (negative is
+cheaper):
+
+| Features | Expected-loss 99% | 97% | 95% | Threshold 99% | 97% | 95% |
+|---|---|---|---|---|---|---|
+| Length only | +0.0% | -2.9% | -2.9% | +0.0% | -3.6% | +0.1% |
+| TF-IDF | -0.1% | -2.4% | -11.8% | -0.6% | -3.1% | -5.6% |
+| Embedding | -1.4% | -8.4% | -17.0% | -5.6% | -11.0% | -13.9% |
+| Embedding + length | -1.4% | -8.4% | -18.1% | -5.8% | -10.3% | -14.0% |
+| Jev, no length | -4.8% | -0.4% | -1.8% | -5.1% | -14.8% | -4.6% |
+| **Jev + length** | **-7.2%** | **-7.6%** | **-5.8%** | **-8.7%** | **-12.3%** | **-7.5%** |
+| Jev + length + embedding | -1.5% | -14.7% | -17.5% | -7.1% | -14.2% | -10.2% |
+
+**The rule was not met: Jev + length won 1 of 3 floors (99%).** At 97% the embedding router was
+slightly cheaper (-8.4% vs -7.6%) and at 95% far cheaper (-17.0% vs -5.8%). Under the threshold rule
+(not the pre-registered one) Jev + length beat the best non-Jev router at 99% and 97% by about 3 and
+1 points and lost clearly at 95%. The reproduction check passed: Jev + length with the threshold rule
+matches the fresh-set numbers in 4.6 exactly. Adding embeddings to Jev's features, which hurt on the
+original items, gave among the cheapest routers here (-14.7% and -17.5% at the lower two floors under
+the expected-loss rule), so the two information sources are not simply redundant; with 594 items the
+difference from the original-set finding could be noise. Every non-trivial router still beat the
+frontier at most cells, and length alone stayed near zero.
+
+An exploratory observation, found after the fact and not pre-registered: broken out by dataset under
+the expected-loss rule, Jev + length was below the fresh frontier in all six dataset-by-floor cells
+(-4.7% to -16.9%), while the embedding router ranged from +0.7% (RouterBench, 95% floor) to -21.0%
+(MMLU-Pro, 95% floor). Jev may be more consistent across datasets than an embedding router, but this
+is not established.
 
 ### 4.6 A fresh set, evaluated once
 
@@ -304,9 +364,9 @@ artifact of the seed-42 design, not that it transfers to other kinds of tasks.
   limits routing headroom there.
 - **Design leakage (largely addressed).** The extra questions were designed after exploring the dev
   half of the seed-42 split (at most 100 items), so the other 19 splits are not independent of the
-  design. The fresh-set evaluation (4.6) removes this for the router as a whole. It does not for the
-  ablation comparison (4.5), which was run on the original 1,220 items only, so Jev's margin over
-  TF-IDF and embedding routers has not been confirmed on unseen data.
+  design. The fresh-set evaluation (4.6) removes this for the router as a whole. The pre-registered
+  replication of the ablation on the fresh set (4.5.2) did not confirm Jev's margin over embedding
+  routers, so that margin is unresolved.
 - **Instability.** Split-to-split standard deviations of the frontier gap are about 3 to 9 points,
   the threshold-rule advantage at the 95% floor is only a few percent, and at the 99% floor one split
   had the router more accurate than Opus, leaving its frontier gap undefined (excluded; see 4.4).
@@ -333,6 +393,8 @@ python -m jev_router.router_v2_experiment --phase full  # richer router (needs J
 python -m jev_router.router_v2_multi_seed               # 20-split check of the richer router
 python -m jev_router.ablation --seeds 20                # no-Jev baselines (uses a local embedding model)
 python -m jev_router.fresh_heldout --project-only      # then without the flag for the fresh-set run
+python -m jev_router.learning_curve                    # learning curve, no API calls
+python -m jev_router.ablation_fresh                    # frozen ablation routers on the fresh set
 python -m jev_router.make_figures
 ```
 

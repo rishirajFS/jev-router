@@ -19,8 +19,10 @@ as a cost-aware LLM router, on ground-truth multiple-choice benchmarks with thre
   **fresh set of 594 unseen items evaluated once with the router frozen** (7.5-12.3% cheaper than the
   best mix; the decision rule was written down before the run).
 - The general result is **not specific to Jev**: TF-IDF and small-embedding routers with no Jev calls
-  also beat single-model mixes. Jev's features gave the largest margin in 5 of 6 rule-and-floor cells,
-  but only on the original 1,220 items with about 600 training items.
+  also beat single-model mixes. Jev's features gave the lowest cost on the original 1,220 items, but a
+  **pre-registered replication on the fresh set did not confirm it** (Jev beat the best non-Jev router
+  at 1 of 3 floors). What is robust is that routing on text features beats picking one model; Jev's own
+  contribution is unresolved.
 - Everything is multiple-choice; nothing here shows transfer to open-ended tasks. Full limitations
   are in the report.
 
